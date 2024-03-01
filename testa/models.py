@@ -14,7 +14,7 @@ class Notes(models.Model):
     def __str__(self):
         return self.note
 
-class Question(models.Model):
+"""class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
 
@@ -31,4 +31,4 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.choice_text
+        return self.choice_text"""
