@@ -10,6 +10,7 @@ from django.utils import timezone
 class Notes(models.Model):
     note = models.CharField(max_length=500)
     date = models.DateField()
+    test1 = models.CharField(max_length=500, default="")
 
 
 class Question(models.Model):
