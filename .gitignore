@@ -2,5 +2,4 @@
 db.sqlite3
 *.pyc
 .env
-testa/.migrations
 testa/.scripts
