@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'testa',
     'django_extensions',
-    "accounts"
+    "accounts",
+    "notes",
 ]
 
 MIDDLEWARE = [
