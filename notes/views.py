@@ -11,7 +11,8 @@ from django.contrib.auth.models import User
 def editor(request):
     noteid = int(request.GET.get('noteid', 0))
     notes = Note.objects.all()
- 
+    notes.user = request.user
+
     if request.method == 'POST':
         noteid = int(request.POST.get('noteid', 0))
         title = request.POST.get('title')
@@ -37,7 +38,7 @@ def editor(request):
     context = {
         'noteid': noteid,
         'notes': notes,
-        'note': note
+        'note': note,
     }
  
     return render(request, 'editor.html', context)
