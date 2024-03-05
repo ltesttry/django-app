@@ -3,6 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
 {% if user.is_authenticated %}
 <p>Hi {{ user.username }}!</p>
 <p><a href="{% url 'password_change' %}">Password Change</a></p>
@@ -14,4 +15,5 @@
 <p>You are not logged in</p>
 <a href="{% url 'login' %}">Log In</a>
 {% endif %}
+
 {% endblock %}
