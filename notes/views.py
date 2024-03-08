@@ -21,11 +21,11 @@ def editor(request):
             note.user = request.user
             note.save()
  
-            return redirect('/?noteid=%i' % noteid)
+            return redirect('/notes/?noteid=%i' % noteid)
         else:
             note = Note.objects.create(title=title, content=content, user=request.user)
  
-            return redirect('/?noteid=%i' % note.id)
+            return redirect('/notes/?noteid=%i' % note.id)
  
     if noteid > 0:
         note = Note.objects.get(pk=noteid)
@@ -47,4 +47,4 @@ def delete_note(request, noteid):
     note = Note.objects.get(pk=noteid)
     note.delete()
  
-    return redirect('/?noteid=0')
+    return redirect('/notes/?noteid=0')
