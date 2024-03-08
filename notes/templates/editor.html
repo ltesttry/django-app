@@ -1,41 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Notes</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-</head>
-<style>
-    .text{
-        color: green;
-        font-weight: bold;
-        margin-top: -10%;
-        margin-left: 200px;
-        font-size: 30px;
-        font-family: 'Times New Roman', Times, serif;
-      }
-</style>
- 
-<body>
-    <nav class="navbar is-white" >
-        <div class="navbar-brand">
-                
-            <a href="{% url 'editor' %}" class="navbar-item has-text-black ok" style="font-size: 25px; font-weight:bold; font-family:'Times New Roman', Times, serif; ">Notes</a>
-            <a href="{% url 'editor' %}?noteid=0"  class="button is-primary" style=" font-weight:bold; font-family:'Times New Roman', Times, serif; margin-top:5%; margin-right:10px">New Note</a>
- 
- 
-          </div>
-        <div class="navbar-menu">
-             
-                
-             
-        </div>
-    </nav>
+{% extends "base.html" %}
+
+{% block title %}Notes{% endblock %}
+
+{% block content %}
+
     <hr>
-     
-    
-           
+               
     <section class="section">
          
         <div class="columns">
@@ -53,7 +23,7 @@
             </div>
  
             <div class="column is-5 mt-3 pt-4" >
-                <h3 class="text text-center"> test </h3>
+                <h4 class="text text-center"> Test </h4>
                 <br>
                 <div class="box" >
                      
@@ -80,6 +50,9 @@
                                 <div class="control">
                                     <a href="{% url 'delete_note' note.id %}" class="button is-danger">Delete</a>
                                 </div>
+                                <div class="control">
+                                    <a href="{% url 'editor' %}?noteid=0" class="button is-primary">new note</a>
+                                </div>
                             {% endif %}
                         </div>
                     </form>
@@ -87,5 +60,5 @@
             </div>
         </div>
     </section>
-</body>
-</html>
+
+{% endblock %}
