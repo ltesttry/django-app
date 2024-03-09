@@ -9,8 +9,33 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'editor' %}?noteid=0">Notes</a>
           </li>
+          
+          <nav class="navbar bg-body-tertiary">
+            <form class="container-fluid justify-content-start">
+                <button class="btn btn-outline-success me-2" type="button">Main button</button>
+            </form>
+          </nav>
+          
+        </ul>
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">signup</a>
+            {% if user.is_authenticated %}
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Log Out</button>
+              </form>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}">{{user.username}}</a>
+              </li>
+
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">signup</a>
+              </li>
+            {% endif %}
           </li>
         </ul>
       </div>
